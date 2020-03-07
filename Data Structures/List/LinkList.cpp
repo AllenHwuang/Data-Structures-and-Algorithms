@@ -4,10 +4,10 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include <string.h>
+#include <cstring>
 
 using namespace std;
-class ListLink{
+class LinkList{
     struct ListNode{
         int val;
         ListNode* next;
@@ -588,58 +588,58 @@ public:
         string s = "";
         string yes = "y";
 
-//    cout << "链表的就地逆置，要演示吗？(y / n) ";
-//    cin>>s;
-//    if(strcasecmp(s.c_str(), yes.c_str()) == 0)
-//        ReversLink(CreateList("接下来将为您构建一个链表，首先需要您确定链表的节点个数(y / n)"));
-//
-//    cout << "链表的正向排序，要演示吗？(y / n)";
-//    cin>>s;
-//    if(strcasecmp(s.c_str(), yes.c_str()) == 0)
-//        LinkListForwardSort(CreateList("接下来将为您构建一个链表，首先需要您确定链表的节点个数(y / n)"));
-//
-//    cout << "删除链表中数值介于x与y之间的节点，要演示吗？(y / n)";
-//    cin>>s;
-//    if(strcasecmp(s.c_str(), yes.c_str()) == 0)
-//        DeleteNodeBtweenXandY(CreateList("接下来将为您构建一个链表，首先需要您确定链表的节点个数(y / n)"));
-//
-//    cout << "查找两个链表的公共节点，要演示吗？(y / n)" << endl;
-//    cin>>s;
-//    if(strcasecmp(s.c_str(), yes.c_str()) == 0)
-//        FindFirstCommonNode(CreateList("接下来将为您构建第二个链表，首先需要您确定链表的节点个数(y / n)"),
-//                            CreateList("接下来将为您构建第一个链表，首先需要您确定链表的节点个数(y / n)"));
-//
-//    cout << "按递增顺序打印单链表所有节点，要演示吗？(y / n)" << endl;
-//    cin>>s;
-//    if(strcasecmp(s.c_str(), yes.c_str()) == 0)
-//        ForwardPrintList(CreateList("接下来将为您构建一个链表，首先需要您确定链表的节点个数(y / n)"));
-//
-//    cout << "将链表按奇偶顺序拆分成两个链表，要演示吗？(y / n)" << endl;
-//    cin>>s;
-//    if(strcasecmp(s.c_str(), yes.c_str()) == 0)
-//        DivideListIntoAandB(CreateList("接下来将为您构建一个链表，首先需要您确定链表的节点个数(y / n)"));
-//
-//    cout << "将链表按奇顺序偶逆序拆分成两个链表，要演示吗？(y / n)" << endl;
-//    cin>>s;
-//    if(strcasecmp(s.c_str(), yes.c_str()) == 0)
-//        DivideListIntoAandBByForwardAndBackward(CreateList("接下来将为您构建一个链表，首先需要您确定链表的节点个数(y / n)"));
-//
-//    cout << "对单链表去重，要演示吗？(y / n)" << endl;
-//    cin>>s;
-//    if(strcasecmp(s.c_str(), yes.c_str()) == 0)
-//        RemoveDuplicateNodeInList(CreateList("接下来将为您构建一个链表，首先需要您确定链表的节点个数(y / n)"));
-//
-//    cout << "就地合并两个有序单链表，要演示吗？(y / n)" << endl;
-//    cin>>s;
-//    if(strcasecmp(s.c_str(), yes.c_str()) == 0)
-//        MergeListsForward(CreateList("接下来将为您构建第二个链表，首先需要您确定链表的节点个数(y / n)"),
-//                          CreateList("接下来将为您构建第一个链表，首先需要您确定链表的节点个数(y / n)"));
-//
-//    cout << "寻找A与B两个链表的交集并存于A链表中，要演示吗？(y / n)" << endl;
-//    cin>>s;
-//    if(strcasecmp(s.c_str(), yes.c_str()) == 0)
-//        FindListsIntersection(CreateList("接下来将为您构建第二个链表，首先需要您确定链表的节点个数(y / n)"),
-//                              CreateList("接下来将为您构建第一个链表，首先需要您确定链表的节点个数(y / n)"));
+    cout << "链表的就地逆置，要演示吗？(y / n) ";
+    cin>>s;
+    if(strcasecmp(s.c_str(), yes.c_str()) == 0)
+        ReversLink(CreateList("接下来将为您构建一个链表，首先需要您确定链表的节点个数(y / n)"));
+
+    cout << "链表的正向排序，要演示吗？(y / n)";
+    cin>>s;
+    if(strcasecmp(s.c_str(), yes.c_str()) == 0)
+        LinkListForwardSort(CreateList("接下来将为您构建一个链表，首先需要您确定链表的节点个数(y / n)"));
+
+    cout << "删除链表中数值介于x与y之间的节点，要演示吗？(y / n)";
+    cin>>s;
+    if(strcasecmp(s.c_str(), yes.c_str()) == 0)
+        DeleteNodeBtweenXandY(CreateList("接下来将为您构建一个链表，首先需要您确定链表的节点个数(y / n)"));
+
+    cout << "查找两个链表的公共节点，要演示吗？(y / n)" << endl;
+    cin>>s;
+    if(strcasecmp(s.c_str(), yes.c_str()) == 0)
+        FindFirstCommonNode(CreateList("接下来将为您构建第二个链表，首先需要您确定链表的节点个数(y / n)"),
+                            CreateList("接下来将为您构建第一个链表，首先需要您确定链表的节点个数(y / n)"));
+
+    cout << "按递增顺序打印单链表所有节点，要演示吗？(y / n)" << endl;
+    cin>>s;
+    if(strcasecmp(s.c_str(), yes.c_str()) == 0)
+        ForwardPrintList(CreateList("接下来将为您构建一个链表，首先需要您确定链表的节点个数(y / n)"));
+
+    cout << "将链表按奇偶顺序拆分成两个链表，要演示吗？(y / n)" << endl;
+    cin>>s;
+    if(strcasecmp(s.c_str(), yes.c_str()) == 0)
+        DivideListIntoAandB(CreateList("接下来将为您构建一个链表，首先需要您确定链表的节点个数(y / n)"));
+
+    cout << "将链表按奇顺序偶逆序拆分成两个链表，要演示吗？(y / n)" << endl;
+    cin>>s;
+    if(strcasecmp(s.c_str(), yes.c_str()) == 0)
+        DivideListIntoAandBByForwardAndBackward(CreateList("接下来将为您构建一个链表，首先需要您确定链表的节点个数(y / n)"));
+
+    cout << "对单链表去重，要演示吗？(y / n)" << endl;
+    cin>>s;
+    if(strcasecmp(s.c_str(), yes.c_str()) == 0)
+        RemoveDuplicateNodeInList(CreateList("接下来将为您构建一个链表，首先需要您确定链表的节点个数(y / n)"));
+
+    cout << "就地合并两个有序单链表，要演示吗？(y / n)" << endl;
+    cin>>s;
+    if(strcasecmp(s.c_str(), yes.c_str()) == 0)
+        MergeListsForward(CreateList("接下来将为您构建第二个链表，首先需要您确定链表的节点个数(y / n)"),
+                          CreateList("接下来将为您构建第一个链表，首先需要您确定链表的节点个数(y / n)"));
+
+    cout << "寻找A与B两个链表的交集并存于A链表中，要演示吗？(y / n)" << endl;
+    cin>>s;
+    if(strcasecmp(s.c_str(), yes.c_str()) == 0)
+        FindListsIntersection(CreateList("接下来将为您构建第二个链表，首先需要您确定链表的节点个数(y / n)"),
+                              CreateList("接下来将为您构建第一个链表，首先需要您确定链表的节点个数(y / n)"));
 
         cout << "A为主串,B为子串的简陋方法模式匹配，要演示吗？(y / n)" << endl;
         cin>>s;
@@ -647,6 +647,6 @@ public:
             SimplePatternMatching(CreateList("接下来将为您构建第二个链表，首先需要您确定链表的节点个数(y / n)"),
                                   CreateList("接下来将为您构建第一个链表，首先需要您确定链表的节点个数(y / n)"));
 
-        return 0;
+        return 1;
     }
 };

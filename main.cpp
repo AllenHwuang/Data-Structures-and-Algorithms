@@ -1,10 +1,13 @@
 #include <iostream>
 #include "Data Structures/List/LinkList.cpp"
+#include "Data Structures/List/SequenceList.cpp"
 
 
 int main() {
     std::cout << "Hello, World!" << std::endl;
-    auto *ll = new ListLink();
-    int i = ll->run();
+    auto *listLink = new LinkList();
+    auto *sequenceList = new SequenceList();
+    int m = listLink->run();
+    int n = sequenceList->run();
     return 0;
 }
