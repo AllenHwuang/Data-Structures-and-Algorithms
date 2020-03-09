@@ -18,6 +18,11 @@ class LinkList{
         DoubleLinkNode  *pre, *next;
         explicit DoubleLinkNode(int x) : val(x), pre(nullptr), next(nullptr) {}
     };
+    struct DoubleLinkNodeWithFrequency{
+        int val, freq = 0;
+        DoubleLinkNodeWithFrequency  *pre, *next;
+        explicit DoubleLinkNodeWithFrequency(int x) : val(x), pre(nullptr), next(nullptr), freq(0) {}
+    };
 
 /**
  * 尾插法建立单链表
@@ -47,6 +52,11 @@ public:
         return list;
     }
 
+/**
+ * 创建循环单链表
+ * @param pointWords
+ * @return
+ */
 public:
     ListNode * CreateCirculationLinkList(const string& pointWords){
         cout << pointWords << endl;
@@ -70,6 +80,40 @@ public:
         rear->next = list;
         return list;
     }
+
+/**
+ * 尾插法建立双链表
+ * @param pointWords
+ * @return
+ */
+public:
+    DoubleLinkNodeWithFrequency * CreateDoubleLinkListWithFrequency(const string& pointWords){
+        cout << pointWords << endl;
+        string s;
+        string yes = "y";
+        cin>>s;
+        auto * list = new DoubleLinkNodeWithFrequency(-1);
+        list->next = nullptr;
+        list->pre = nullptr;
+        if(strcasecmp(s.c_str(), yes.c_str()) != 0)
+            return list;
+        cout << "请输入节点个数：";
+        DoubleLinkNodeWithFrequency *rear = list;
+        int len;
+        cin >> len;
+        cout << "请您依次输入该链表的"<< len <<"个节点值: ";
+        while(len--){
+            int x;
+            cin>>x;
+            auto *node = new DoubleLinkNodeWithFrequency(x);
+            node->next = rear->next;
+            rear->next = node;
+            node->pre = rear;
+            rear = node;
+        }
+        return list;
+    }
+
 /**
  * 尾插法建立双链表
  * @param pointWords
@@ -102,6 +146,20 @@ public:
             list->pre = rear;
         }
         return list;
+    }
+
+/**
+ * 循环打印带查找频率的双链表
+ */
+public:
+    void PrintDoubleLinkListWithFrequency(DoubleLinkNodeWithFrequency *L){
+        cout << "{ adress: " << L << ", val: " << L->val << ", freq: " << L->freq <<
+             ", pre: " << L->pre << ", next: " << L->next << " }" << endl;
+        while(L->next != nullptr){
+            L = L->next;
+            cout << "{ adress: " << L << ", val: " << L->val << ", freq: " << L->freq <<
+            ", pre: " << L->pre << ", next: " << L->next << " }" << endl;
+        }
     }
 
 public:
@@ -755,6 +813,169 @@ public:
         cout << endl;
     }
 
+/**
+ * 双链表查找指定节点, 并更新查找频率
+ * 王道P38 综合题20
+ * @param L
+ * @param x
+ */
+public:
+    DoubleLinkNodeWithFrequency* LocateDoubleLinkList(DoubleLinkNodeWithFrequency* &L, int x){
+        DoubleLinkNodeWithFrequency *p = L->next;
+        int freq = 0;
+        while(p->val != x){
+            p = p->next;
+            if(p == L){
+                cout << "链表中没有找到该节点" << endl;
+                return nullptr;
+            }
+        }
+        freq = ++ p->freq;
+        DoubleLinkNodeWithFrequency *q = p;
+        p->pre->next = p->next;
+        if(p->next != nullptr){
+            p->next->pre = p->pre;
+        }
+        while(p->freq <= freq){
+            p = p->pre;
+            if(p == L){
+                q->next = p->next;
+                p->next->pre = q;
+                p->next = q;
+                q->pre = p;
+                return q;
+            }
+        }
+        q->next = p->next;
+        p->next->pre = q;
+        p->next = q;
+        p->pre = p;
+        return q;
+    }
+
+/**
+ * 单链表中查找倒数第k个节点
+ * 王道P38 综合题21
+ * @param L
+ * @param k
+ */
+public:
+    void FindTheLastKNodeInLinkList(ListNode *L, int k){
+        ListNode *p = L, *q = L;
+        if(L->next == nullptr){
+            cout << "单链表为空" << endl;
+            return;
+        }
+        k--;
+        while(k--)
+            p = p->next;
+        while(p->next != nullptr){
+            p = p->next;
+            q = q->next;
+        }
+        cout << "找到倒数第" << k << "个节点为: " << q->val << endl;
+    }
+
+/**
+ * 找出两个单词的公共后缀
+ * 王道P38 综合题22
+ * @param L
+ * @param k
+ */
+public:
+    void FindCommonSuffixesForWords(const string& word2, const string& word1){
+        ListNode *Word1 = nullptr, *Word2 = nullptr; // 这里应该是将函数的两个字符串形参转为两个单链表，未实现......
+        ListNode *p = Word1->next, *q = Word2->next, *r = nullptr;
+        int length1 = 0, length2 = 0, dif = 0;
+        if(Word1->next == nullptr || Word2->next == nullptr){
+            cout << "存在空白单词." << endl;
+            return;
+        }
+        while(p != nullptr){
+            length1++;
+            p = p->next;
+        }
+        while(q != nullptr){
+            length2++;
+            q = q->next;
+        }
+
+        if(length1 >= length2){
+            dif = length1 - length2;
+            while (dif--)
+                p = p->next;
+            while(length2--){
+                if(p == q){
+                    r = p;
+                    break;
+                }
+                p = p->next;
+                q = q->next;
+            }
+            if(r == nullptr){
+                cout << "这两个单词没有公共后缀." << endl;
+            } else{
+                cout << "单词 ";
+                while(Word1->next != nullptr){
+                    Word1 = Word1->next;
+                    cout << Word1->val;
+                }
+                cout << "与单词 ";
+                while(Word2->next != nullptr){
+                    Word2 = Word2->next;
+                    cout << Word2->val;
+                }
+                cout << "的公共后缀为: ";
+                while(r != nullptr){
+                    cout << r->val;
+                    r = r->next;
+                }
+                cout << endl;
+            }
+        }
+    }
+
+/**
+ * 去除单链表中绝对值相同的节点, 节点的绝对值不大于n
+ * 王道P38 综合题23
+ * y 35 y 8 21 15 15 -6 -15 25 30 15
+ * @param L
+ * @param n
+ */
+public:
+    void RemoveNodesWithTheSameAbsoluteValue(ListNode *L, int n){
+        ListNode *p = L->next, *pre = L;
+        int *bucket = new int[n + 1];
+        for (int i = 0; i < n + 2; i++){
+            *(bucket + i) = 0;
+        }
+        if(p == nullptr){
+            cout << "单链表为空." << endl;
+            return;
+        }
+        while(p != nullptr){
+            int tmp = abs(p->val);
+            if(bucket[tmp] == 0){
+                bucket[tmp] = 1;
+                pre = p;
+                p = p->next;
+            } else{
+                ListNode *q = p;
+                p = p->next;
+                pre->next = p;
+                free(q);
+            }
+        }
+
+        p = L->next;
+        cout << "更新后的单链表为: ";
+        while(p != nullptr){
+            cout << "->" << p->val;
+            p = p->next;
+        }
+        cout << endl;
+    }
+
 public:
     int run(){
         string s, yes = "y";
@@ -765,6 +986,8 @@ public:
         string c4 =  "接下来将为您构建一个单循环链表，首先需要您确定链表的节点个数(y / n)";
         string c5 =  "接下来将为您构建第一个单循环链表，首先需要您确定链表的节点个数(y / n)";
         string c6 =  "接下来将为您构建第二个单循环链表，首先需要您确定链表的节点个数(y / n)";
+        string c7 =  "接下来将为您构建一个记录访问频率的双链表，首先需要您确定链表的节点个数(y / n)";
+
         cout << "链表的就地逆置，要演示吗？(y / n) ";
         cin>>s;
         if(strcasecmp(s.c_str(), yes.c_str()) == 0)
@@ -834,6 +1057,51 @@ public:
         cin>>s;
         if(strcasecmp(s.c_str(), yes.c_str()) == 0)
             LoopFindMinNode(CreateCirculationLinkList(c4));
+
+        cout << "双链表查找指定节点, 并更新查找频率 ,要演示吗？(y / n)" << endl;
+        cin>>s;
+        if(strcasecmp(s.c_str(), yes.c_str()) == 0){
+            DoubleLinkNodeWithFrequency *L = CreateDoubleLinkListWithFrequency(c7);
+            DoubleLinkNodeWithFrequency *node = nullptr;
+            int x;
+            while(1){
+                cout << "请输入您想要查找的节点值: ";
+                cin >> x;
+                node = LocateDoubleLinkList(L, x);
+                cout << "找到的节点地址为: " << node << endl << "更新之后的双链表为: " << endl;
+                PrintDoubleLinkListWithFrequency(L);
+            }
+        }
+
+        cout << "单链表中查找倒数第k个节点，要演示吗？(y / n)" << endl;
+        cin>>s;
+        if(strcasecmp(s.c_str(), yes.c_str()) == 0) {
+            int k = 0;
+            cout << "请输入您想要查找倒数第几个节点: ";
+            cin >> k;
+            FindTheLastKNodeInLinkList(CreateLinkList(c0), k);
+        }
+
+        cout << "找出两个单词的公共后缀，要演示吗？(y / n)" << endl;
+        cin>>s;
+        if(strcasecmp(s.c_str(), yes.c_str()) == 0) {
+            string word1, word2;
+            cout << "请输入您要比较的第一个单词: ";
+            cin >> word1;
+            cout << "请输入您要比较的第二个单词: ";
+            cin >> word2;
+            FindCommonSuffixesForWords(word2, word1);
+        }
+
+        cout << "去除单链表中绝对值相同的节点, 节点的绝对值不大于n，要演示吗？(y / n)" << endl;
+        cin>>s;
+        if(strcasecmp(s.c_str(), yes.c_str()) == 0){
+            cout << "请输入单链表绝对值的最大值n: ";
+            int n = 0;
+            cin >> n;
+            RemoveNodesWithTheSameAbsoluteValue(CreateLinkList(c0), n);
+        }
+
 
         return 1;
     }

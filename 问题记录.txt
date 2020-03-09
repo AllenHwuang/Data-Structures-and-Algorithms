@@ -1,0 +1,5 @@
+王道P38 综合题20写的好像是有问题, 某些测试用例运行不正确, 但不知道原因 ———— LinkList.cpp_LocateDoubleLinkList
+王道P38 综合题22的代码没有运行测试过正确性，因为没有实现将两个单词字符串转换为两个存在公共节点的单链表，无法测试算法 ———— LinkList.cpp_FindCommonSuffixesForWords
+
+
+
