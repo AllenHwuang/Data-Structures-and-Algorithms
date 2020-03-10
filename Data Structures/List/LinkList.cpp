@@ -3,8 +3,7 @@
 //
 #include <iostream>
 #include <vector>
-#include <string>
-#include <cstring>
+#include <string.h>
 
 using namespace std;
 class LinkList{
