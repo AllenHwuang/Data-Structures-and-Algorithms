@@ -976,7 +976,7 @@ public:
     }
 
 public:
-    int run(){
+    void run(){
         string s, yes = "y";
         string c0 =  "接下来将为您构建一个链表，首先需要您确定链表的节点个数(y / n)";
         string c1 =  "接下来将为您构建第一个链表，首先需要您确定链表的节点个数(y / n)";
@@ -1100,8 +1100,5 @@ public:
             cin >> n;
             RemoveNodesWithTheSameAbsoluteValue(CreateLinkList(c0), n);
         }
-
-
-        return 1;
     }
 };

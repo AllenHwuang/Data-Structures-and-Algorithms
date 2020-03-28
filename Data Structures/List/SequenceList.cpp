@@ -197,8 +197,7 @@ class SequenceList{
     }
 
 public:
-//  0 1 1 2 3 4 5 5 6 7   7 8    8 9 10 11 12 14 18 21 22 25
-    int run() {
+    void run() {
         int n = 6;
 //    int array1[] = {1, 5, 7, 8, 14, 18, 21, 22, 25};
 //    int array2[] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12};
@@ -213,8 +212,6 @@ public:
         //ArrayRotateLeft(array2, length2, n); //将数组array1循环左移n位
         // GetMedianOfTwoArray1(array1, length1, array2, length2);
         GetMedianOfTwoArray2(array1, length1, array2, length2);
-
-        return 1;
     }
 };
 

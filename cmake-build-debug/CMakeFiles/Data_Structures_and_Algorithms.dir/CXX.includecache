@@ -6,27 +6,35 @@
 
 #IncludeRegexTransform: 
 
-C:/Users/29546/CLionProjects/Data Structures and Algorithms/Data Structures/List/LinkList.cpp
+C:/Users/29546/CLionProjects/Data-Structures-and-Algorithms/Data Structures/List/LinkList.cpp
 iostream
 -
 vector
 -
-string
--
-cstring
+string.h
 -
 
-C:/Users/29546/CLionProjects/Data Structures and Algorithms/Data Structures/List/SequenceList.cpp
+C:/Users/29546/CLionProjects/Data-Structures-and-Algorithms/Data Structures/List/SequenceList.cpp
 iostream
 -
 vector
 -
 
-C:/Users/29546/CLionProjects/Data Structures and Algorithms/main.cpp
+C:/Users/29546/CLionProjects/Data-Structures-and-Algorithms/Data Structures/Tree/BinaryTree.cpp
+iostream
+-
+vector
+-
+stack
+-
+
+C:/Users/29546/CLionProjects/Data-Structures-and-Algorithms/main.cpp
 iostream
 -
 Data Structures/List/LinkList.cpp
-C:/Users/29546/CLionProjects/Data Structures and Algorithms/Data Structures/List/LinkList.cpp
+C:/Users/29546/CLionProjects/Data-Structures-and-Algorithms/Data Structures/List/LinkList.cpp
 Data Structures/List/SequenceList.cpp
-C:/Users/29546/CLionProjects/Data Structures and Algorithms/Data Structures/List/SequenceList.cpp
+C:/Users/29546/CLionProjects/Data-Structures-and-Algorithms/Data Structures/List/SequenceList.cpp
+Data Structures/Tree/BinaryTree.cpp
+C:/Users/29546/CLionProjects/Data-Structures-and-Algorithms/Data Structures/Tree/BinaryTree.cpp
 

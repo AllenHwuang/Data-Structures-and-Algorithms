@@ -4,7 +4,8 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "C:/Users/29546/CLionProjects/Data Structures and Algorithms/main.cpp" "C:/Users/29546/CLionProjects/Data Structures and Algorithms/cmake-build-debug/CMakeFiles/Data_Structures_and_Algorithms.dir/main.cpp.obj"
+  "C:/Users/29546/CLionProjects/Data-Structures-and-Algorithms/Data Structures/Tree/BinaryTree.cpp" "C:/Users/29546/CLionProjects/Data-Structures-and-Algorithms/cmake-build-debug/CMakeFiles/Data_Structures_and_Algorithms.dir/Data_Structures/Tree/BinaryTree.cpp.obj"
+  "C:/Users/29546/CLionProjects/Data-Structures-and-Algorithms/main.cpp" "C:/Users/29546/CLionProjects/Data-Structures-and-Algorithms/cmake-build-debug/CMakeFiles/Data_Structures_and_Algorithms.dir/main.cpp.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
